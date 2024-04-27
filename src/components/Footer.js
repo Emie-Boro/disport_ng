@@ -6,7 +6,7 @@ const Footer = () => {
     const { currentUser } = useAuth()
   return (
     <footer className='bg-primary text-light '>
-        <div className="p-5">
+        <div className="container mx-auto p-5">
             <ul className="flex flex-col">
                 <li><Link to={'/'}>Home</Link></li>
                 <li><Link to={'#'}>Contact us</Link></li>

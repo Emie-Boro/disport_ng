@@ -15,19 +15,21 @@ const Signup = () => {
     if(currentUser) {
         navigate('/dashboard')
     }
-    
     const handleSubmit = (e) =>{
+        if(!password || !email) {
+            alert('All fields are required')
+            return
+        }    
         createUserWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
             console.log(userCredential)
         }).catch(err =>{
             console.log(err.message)
         })
-        navigate('/dashboard')
     }
     
   return (
-    <div>
+    <div className='p-5'>
         <span>{error && error}</span>
         <input type="email" placeholder='Email' value={email} onChange={(e)=> setEmail(e.target.value)}/>
         <input type="password" placeholder='Password' value={password} onChange={(e)=> setPassword(e.target.value)}/>
