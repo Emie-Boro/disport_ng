@@ -37,7 +37,7 @@ const Signup = () => {
                 <input type="password" placeholder='Password' value={password} onChange={(e)=> setPassword(e.target.value)} className='my-3 px-4 py-2 w-full' style={{border: '1px solid black'}}/>
             </div>
             <div>
-                <button onClick={handleSubmit} className='bg-dark text-semi_light w-full py-3'>Signup</button>
+                {process.env.REACT_APP_SIGNUP ? <button onClick={handleSubmit} className='bg-dark text-semi_light w-full py-3'>Signup</button> : <button onClick={handleSubmit} className='bg-dark text-semi_light w-full py-3 bi bi-lock' disabled>Signup</button>}
             </div>
         </div>
     </div>
