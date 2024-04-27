@@ -11,7 +11,7 @@ const PostList = ({ posts }) => {
       </div>
       <div className='p-5 lg:w-1/2'>
           {posts?.map(post =>( 
-            <div key={post.id} className='my-5'>
+            <div key={post.id} className='my-3'>
               <Link to={`/blog/${post.id}`} onClick={()=> handleViews(post.id)}>
                 <div className='flex flex-row justify-between'>
                   <div className='w-2/3 md:w-full'>
