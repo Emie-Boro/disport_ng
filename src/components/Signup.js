@@ -30,14 +30,14 @@ const Signup = () => {
     
   return (
     <div className='container mx-auto'>
-        <div className='p-5 flex flex-col w-1/3'>
+        <div className='p-5 flex flex-col lg:w-1/3'>
             <div className="">
                 <span>{error && error}</span>
                 <input type="email" placeholder='Email' value={email} onChange={(e)=> setEmail(e.target.value)} className='my-3 px-4 py-2 w-full' style={{border: '1px solid black'}}/>
                 <input type="password" placeholder='Password' value={password} onChange={(e)=> setPassword(e.target.value)} className='my-3 px-4 py-2 w-full' style={{border: '1px solid black'}}/>
             </div>
             <div>
-                {process.env.REACT_APP_SIGNUP ? <button onClick={handleSubmit} className='bg-dark text-semi_light w-full py-3'>Signup</button> : <button onClick={handleSubmit} className='bg-dark text-semi_light w-full py-3 bi bi-lock' disabled>Signup</button>}
+                {process.env.REACT_APP_SIGNUP === 'true' ? <button onClick={handleSubmit} className='bg-dark text-semi_light w-full py-3'>Signup</button> : <button onClick={handleSubmit} className='bg-dark text-semi_light w-full py-3' disabled><i className='bi bi-lock mr-2'></i>Signup</button>}
             </div>
         </div>
     </div>

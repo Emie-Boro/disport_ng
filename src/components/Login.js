@@ -25,7 +25,7 @@ const Login = () => {
     }
   return (
     <div className="container mx-auto">
-        <div className="p-5 flex flex-col w-1/3">
+        <div className="p-5 flex flex-col lg:w-1/3">
           <div className="">
             <input type="email" placeholder="Email" value={email} onChange={(e)=> setEmail(e.target.value)} className='my-3 px-4 py-2 w-full' style={{border: '1px solid black'}}/>
             <input type="password" placeholder="Password" value={password} onChange={(e)=> setPassword(e.target.value)} className='my-3 px-4 py-2 w-full' style={{border: '1px solid black'}}/>
