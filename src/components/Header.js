@@ -15,7 +15,7 @@ const Header = () => {
             </ul>
           </div>
           <div>
-            <div>
+            <div className="hidden">
               <span className="bg-dark p-5"></span>
             </div>
             <ul className="flex md:flex-col">
