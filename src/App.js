@@ -15,7 +15,7 @@ function App() {
       <Router>
         <Header />
         <div className="">
-          <div className="container mx-auto p-2">
+          <div className="">
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/signup' element={<Signup />} />

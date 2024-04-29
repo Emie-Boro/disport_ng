@@ -25,9 +25,8 @@ const Technology = () => {
     }, [])
     
     return (
-        <div className="my-5 p-5 bg-semi_light rounded-2xl">
-            <h5 className="ml-5 text-2xl uppercase font-bold">Technology</h5>
-            <PostList posts={queryContent}/>
+        <div className="my-5 p-5 rounded-2xl">
+            <PostList posts={queryContent} title={'Technology'}/>
         </div>
     )
 }
