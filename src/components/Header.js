@@ -27,6 +27,7 @@ const Header = () => {
             <div>
               <ul className="flex md:flex-col lg:items-center">
                   <li className="md:hidden"><Link to={'/'}><img src="/favicon.ico" alt="" width={'40'} className="mr-5"/></Link></li>
+                  <li><Link to={'/'} className="mr-5">Home</Link></li>
                   <li><Link to={'#'} className="mr-5">Hottest</Link></li>
                   <li><Link to={'#'} className="mr-5">World News</Link></li>
               </ul>
@@ -38,7 +39,7 @@ const Header = () => {
                     {currentUser && <li className="lg:mr-5"><Link to={'/newPost'}>New Post</Link></li>}
                     {currentUser && <li className="lg:mr-5"><Link to={'/dashboard'}>Dashboard</Link></li>}
                     <li className="">{currentUser ? <Logout /> : <Link to={'/login'}>Login</Link>}</li>
-                    <li className="sm:hidden"><Link to={'#'} className="ml-5 bg-dark text-light p-3 rounded-xl">Advertise with us</Link></li>
+                    <li className="md:my-5"><Link to={'#'} className="lg:ml-5 bg-dark text-light p-3 rounded-sm hover:bg-semi_light hover:text-secondary">Advertise with us</Link></li>
                 </ul>
               </div>
             </div>

@@ -15,7 +15,6 @@ function App() {
       <Router>
         <Header />
         <div className="">
-          <div className="">
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/signup' element={<Signup />} />
@@ -24,7 +23,6 @@ function App() {
               <Route path='/newPost' element={<PostForm />} />
               <Route path='/blog/:id' element={<Post />} />
             </Routes>
-          </div>
         </div>
         <Footer />
       </Router>
