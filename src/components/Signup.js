@@ -37,7 +37,7 @@ const Signup = () => {
                 <input type="password" placeholder='Password' value={password} onChange={(e)=> setPassword(e.target.value)} className='my-3 px-4 py-2 w-full' style={{border: '1px solid black'}}/>
             </div>
             <div>
-                <button onClick={process.env.REACT_APP_SIGNUP === 'true' ? handleSubmit : alert('Signup is disabled...')} className={`bg-dark text-semi_light w-full py-3`}>Signup {process.env.REACT_APP_SIGNUP === 'true' && <i className="bi bi-lock"></i>}</button> 
+                <button onClick={handleSubmit} className={`bg-dark text-semi_light w-full py-3`}>Signup <i className="bi bi-lock"></i></button> 
             </div>
         </div>
     </div>
