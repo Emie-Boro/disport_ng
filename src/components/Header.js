@@ -20,7 +20,7 @@ const Header = () => {
               </button>
             </div>
             <div>
-              <img src="/favicon.ico" alt="" width={'40'}/>
+              <Link to={'/'}><img src="/favicon.ico" alt="" width={'40'}/></Link>
             </div>
           </div>
           <div className={`md:${!showMenu && 'hidden'} flex flex-row md:flex-col justify-between py-5 lg:items-center`}>

@@ -27,19 +27,28 @@ const PostForm = () => {
     if(!currentUser) {
       navigate('/')
     }
-  
+
     const handleSubmit = async (e) =>{
       e.preventDefault();
-
+      
       if(!postImg) {
         alert('Please select an Image')
+        return
+      }
+      const fileSize = 500*1024
+      if(postImg.size > fileSize) {
+        alert(`File size should not be more than ${fileSize/1048576} MB`)
+        return
+      }
+      if(postImg.type.split('/')[0] !== 'image') {
+        alert('Invalid Image Input...')
         return
       }
       if(!category) {
         alert('Please choose a niche...')
         return
       }
-      const storageRef = ref(storage, `blog-post-${category}-${new Date().getFullYear()}-${Date.now()}`);
+      const storageRef = ref(storage, category, `blog-post-${currentUser.uid}-${new Date().getFullYear()}-${Date.now()}`);
 
       uploadBytes(storageRef, postImg).then(snapshot => {
         return getDownloadURL(snapshot.ref)
@@ -67,6 +76,7 @@ const PostForm = () => {
   
     return (
       <div className="m-5">
+        <button onClick={()=>console.log(postImg.type.split('/')[0])}>Test File Input</button>
         <div className="flex md:flex-col">
           <form onSubmit={handleSubmit} className='flex flex-col w-2/3'>
             <div className='flex my-4'>
