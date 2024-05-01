@@ -37,7 +37,7 @@ const Signup = () => {
                 <input type="password" placeholder='Password' value={password} onChange={(e)=> setPassword(e.target.value)} className='my-3 px-4 py-2 w-full' style={{border: '1px solid black'}}/>
             </div>
             <div>
-                <button onClick={handleSubmit} className="bg-dark text-semi_light w-full py-3">Signup</button> 
+                <button onClick={()=> alert('Sign up Disabled for now...')} className="bg-dark text-semi_light w-full py-3">Sign up</button> 
             </div>
         </div>
     </div>
