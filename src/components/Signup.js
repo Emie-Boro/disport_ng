@@ -22,7 +22,8 @@ const Signup = () => {
         }    
         createUserWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
-            alert('Signup Successful...')
+            console.log(userCredential)
+            alert('Signup Successful')
         }).catch(err =>{
             console.log(err.message)
         })
