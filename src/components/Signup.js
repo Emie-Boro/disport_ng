@@ -16,21 +16,16 @@ const Signup = () => {
         navigate('/dashboard')
     }
     const handleSubmit = (e) =>{
-        if((new Date().toDateString() == 'Wed May 02 2024')) {
-            alert('Signup Disabled...')
+        if(!password || !email) {
+            alert('All fields are required')
             return
-        } else {
-            if(!password || !email) {
-                alert('All fields are required')
-                return
-            }    
-            createUserWithEmailAndPassword(auth, email, password)
-            .then(userCredential => {
-                console.log(userCredential)
-            }).catch(err =>{
-                console.log(err.message)
-            })
-        }
+        }    
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(userCredential => {
+            console.log(userCredential)
+        }).catch(err =>{
+            console.log(err.message)
+        })
     }
   return (
     <div className='container mx-auto'>
