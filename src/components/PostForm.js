@@ -15,6 +15,7 @@ const db = getFirestore(app)
 const storage = getStorage();
 
 const PostForm = () => {
+    const [click, setClick] = useState(false)
     const [postImg, setPostImg] = useState()
     const [title, setTitle] = useState()
     const [content, setContent] = useState()
@@ -49,7 +50,8 @@ const PostForm = () => {
         return
       }
       const storageRef = ref(storage, category, `blog-post-${currentUser.uid}-${new Date().getFullYear()}-${Date.now()}`);
-
+      
+      setClick(true)
       uploadBytes(storageRef, postImg).then(snapshot => {
         return getDownloadURL(snapshot.ref)
       }).then(async (downloadURL) =>{
@@ -69,6 +71,7 @@ const PostForm = () => {
         setTitle('')
         setCategory('')
         setContent('')
+        setClick(false)
       }).catch(err =>{
         console.log(err)
       })
@@ -76,12 +79,11 @@ const PostForm = () => {
   
     return (
       <div className="m-5">
-        <button onClick={()=>console.log(postImg.type.split('/')[0])}>Test File Input</button>
         <div className="flex md:flex-col">
-          <form onSubmit={handleSubmit} className='flex flex-col w-2/3'>
+          <form className='flex flex-col lg:w-2/3'>
             <div className='flex my-4'>
               <input type="file" className='my-3 block w-full text-sm text-dark file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0' id="" ref={fileInputRef} onChange={(e)=>setPostImg(e.target.files[0])}/>
-              <input type="submit" value="Submit" className='bg-primary text-light px-5'/>
+              {!click ? <input type="submit" value="Submit" className='md:hidden bg-primary text-light px-5'/> : <input type="submit" value="Loading..." className='md:hidden bg-primary text-light px-5'/>}
             </div>
             <input type="text" className='border border-dark focus:outline-none rounded-sm p-3' value={title} onChange={(e)=> setTitle(e.target.value)} placeholder="Title"/>
 
@@ -95,21 +97,20 @@ const PostForm = () => {
               <option value="world">World News</option>
               <option value="news">Local News</option>
             </select>
-            {/* <input type="text" className='border border-dark focus:outline-none rounded-sm p-3' value={category} onChange={(e)=> setCategory(e.target.value)} placeholder="Category"/> */}
-
-            {/* CkEditor Setup */}
-            <CKEditor editor={ ClassicEditor } config={{ removePlugins: ["EasyImage","ImageUpload","MediaEmbed"]}}
-            data={content}
-            onReady={ ( editor ) => {
-              console.log( "CKEditor5 React Component is ready to use!", editor );
-            } }
-            onChange={ ( event, editor ) => {
-              const data = editor.getData();
-              setContent(data)
-            } }/>
-
-          </form>
+      
+          {/* CkEditor Setup */}
+          <CKEditor editor={ ClassicEditor } config={{ removePlugins: ["EasyImage","ImageUpload","MediaEmbed"]}}
+          data={content}
+          onReady={ ( editor ) => {
+            console.log( "CKEditor5 React Component is ready to use!", editor );
+          } }
+          onChange={ ( event, editor ) => {
+            const data = editor.getData();
+            setContent(data)
+          } }/>
           <Noticeboard />
+          <button onClick={handleSubmit} type="submit" className='lg:hidden bg-primary text-light p-3 rounded-lg hover:bg-dark' disabled={click}>{click ? 'Loading...' : 'Submit'}</button>
+          </form>
         </div>
       </div>
     );

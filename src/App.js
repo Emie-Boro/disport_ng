@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Post from './components/Post';
+import UserPost from './components/UserPost';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path='/dashboard' element={<Dashboard />} />
               <Route path='/newPost' element={<PostForm />} />
               <Route path='/blog/:id' element={<Post />} />
+              <Route path='/userPost' element={<UserPost />} />
             </Routes>
         </div>
         <Footer />
