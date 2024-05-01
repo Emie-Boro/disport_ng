@@ -14,14 +14,14 @@ const Footer = () => {
                     {!currentUser && <li className=""><Link to={'/signup'}>Signup</Link></li>}
                 </ul>
               </div>
-              <div className="text-sm text-gray">
+              {/* <div className="text-sm text-gray">
                 <span className="text-lg text-light">Contact</span>
                 <ul className="mt-2">
                   <li className="mb-2">disportng@gmail.com</li>
                   <li className="mb-2">+234 (0)810 999 5607</li>
                   <li><address>NDU, Yenagoa, Bayelsa, Nigeria</address></li>
                 </ul>
-              </div>
+              </div> */}
             </div>
         </div>
       <p className="text-center py-3 text-xs">Copyright &copy; 2024</p>
