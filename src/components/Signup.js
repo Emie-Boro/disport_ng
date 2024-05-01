@@ -16,19 +16,21 @@ const Signup = () => {
         navigate('/dashboard')
     }
     const handleSubmit = (e) =>{
-        if(!password || !email) {
-            alert('All fields are required')
+        if((new Date().toDateString() == 'Wed May 02 2024')) {
+            alert('Signup Disabled...')
             return
-        }    
-        createUserWithEmailAndPassword(auth, email, password)
-        .then(userCredential => {
-            console.log(userCredential)
-        }).catch(err =>{
-            console.log(err.message)
-        })
-    }
-    const disabledBtn = (e) =>{
-        alert('Signup disabled by Admin...')
+        } else {
+            if(!password || !email) {
+                alert('All fields are required')
+                return
+            }    
+            createUserWithEmailAndPassword(auth, email, password)
+            .then(userCredential => {
+                console.log(userCredential)
+            }).catch(err =>{
+                console.log(err.message)
+            })
+        }
     }
   return (
     <div className='container mx-auto'>
@@ -39,7 +41,7 @@ const Signup = () => {
                 <input type="password" placeholder='Password' value={password} onChange={(e)=> setPassword(e.target.value)} className='my-3 px-4 py-2 w-full' style={{border: '1px solid black'}}/>
             </div>
             <div>
-                <button onClick={handleSubmit} className="bg-dark text-semi_light w-full py-3" disabled>Signup</button> 
+                <button onClick={handleSubmit} className="bg-dark text-semi_light w-full py-3">Signup</button> 
             </div>
         </div>
     </div>
