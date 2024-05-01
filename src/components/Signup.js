@@ -22,7 +22,7 @@ const Signup = () => {
         }    
         createUserWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
-            console.log(userCredential)
+            alert('Signup Successful...')
         }).catch(err =>{
             console.log(err.message)
         })
