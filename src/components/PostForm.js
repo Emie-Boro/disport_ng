@@ -29,6 +29,12 @@ const PostForm = () => {
       navigate('/')
     }
 
+    // const handleSubmit = async (e) =>{
+    //   e.preventDefault()
+    //   const storageRef = ref(storage, `blog-post-${category}-${currentUser.email.split('@')[0]}-${new Date().getFullYear()}-${Date.now()}`);
+    //   console.log(storageRef.parent)
+    // }
+
     const handleSubmit = async (e) =>{
       e.preventDefault();
       
@@ -49,14 +55,17 @@ const PostForm = () => {
         alert('Please choose a niche...')
         return
       }
-      const storageRef = ref(storage, category, `blog-post-${currentUser.uid}-${new Date().getFullYear()}-${Date.now()}`);
+      const storageRef = ref(storage, `${currentUser.uid}-${new Date().getFullYear()}-${Date.now()}`);
       
       setClick(true)
       uploadBytes(storageRef, postImg).then(snapshot => {
         return getDownloadURL(snapshot.ref)
       }).then(async (downloadURL) =>{
         await addDoc(collection(db, 'blogPosts'), {
-          imgUrl: downloadURL,
+          image: {
+            url: downloadURL,
+            name: storageRef.name
+          },
           title,
           content,
           category,

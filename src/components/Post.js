@@ -31,7 +31,7 @@ const Post = () => {
             </div>
         </div>
         <div className="lg:flex md:flex">
-            <div className="lg:m-5 px-6 p-5 lg:2/3 rounded-lg">
+            <div className="lg:m-5 px-6 p-5 lg:w-10/12 rounded-lg">
                 <div className="mb-3">
                     <h1 className="lg:text-3xl md:text-lg font-semibold">{post && post.title}</h1>
                     <span className="text-sm text-gray">Author's Email: <span className="text-primary">{post && post.author.email}</span></span><br />
@@ -39,10 +39,10 @@ const Post = () => {
                 </div>
                 <div>
                     <img src={post && post.imgUrl} alt="" className="rounded-lg md:w-10/12 lg:w-10/12"/>
-                    <div dangerouslySetInnerHTML={{ __html: post && post.content }} className="my-5 p-2"></div>
+                    <div dangerouslySetInnerHTML={{ __html: post && post.content }} className="my-5 p-2 text-justify"></div>
                 </div>
             </div>
-            <div className="sm:hidden md:w-10/12 lg:w-7/12">
+            <div className="sm:hidden md:w-10/12 lg:w-4/12">
                 <AdsSpace1 />
             </div>
         </div>

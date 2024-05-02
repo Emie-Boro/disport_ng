@@ -27,7 +27,7 @@ const PostList = ({ posts, title }) => {
               </div>
             ))}
             <div className='mt-5'>
-              <Link to={'/entertainment'} className="p-2 bg-dark text-light sm:text-xs">Read More</Link>
+              <Link to={'/'} className="p-2 bg-dark text-light sm:text-xs">Read More</Link>
             </div>
         </div>
       </div>
